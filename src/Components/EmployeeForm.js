@@ -22,6 +22,10 @@ const Input = styled.input.attrs({
     type: "text"
 })``
 
+const Button = styled.p.attrs({
+    className: "f6 link dim br-pill ph3 pv2 mb2 dib white bg-gold"
+})``
+
 
 
 class EmployeeForm extends Component {
@@ -32,7 +36,7 @@ class EmployeeForm extends Component {
         location: '',
         direct: '',
         office: '',
-        department_id: null
+        department_id: 2
     }
 
     handleChange = (event) => {
@@ -50,11 +54,23 @@ class EmployeeForm extends Component {
 
     render() {
         return (
-            <Form>
+            <Form onChange={this.handleChange}>
                 <Measure>
-                    <Label for="name">Name</Label>
-                    <Input id="name" type="text" aria-describedby="name-desc" />
-                    {/* <small id="name-desc" class="f6 black-60 db mb2">Helper text for the form control.</small> */}
+                    <Label htmlFor="name">Name</Label>
+                    <Input id="name" name="name" type="text" aria-describedby="name-desc" />
+                    <Label htmlFor="title">Title</Label>
+                    <Input id="title" name="title" type="text" aria-describedby="title-desc" />
+                    <Label htmlFor="location">Location</Label>
+                    <Input id="location" name="location" type="text" aria-describedby="location-desc" />
+                    <Label htmlFor="direct">Direct Line</Label>
+                    <Input id="direct" name="direct" type="text" aria-describedby="direct-desc" />
+                    <Label htmlFor="office">Office</Label>
+                    <Input id="office" name="office" type="text" aria-describedby="office-desc" />
+
+                    <Button onClick={this.handleSubmit}>Add</Button>
+
+                    
+
                 </Measure>
             </Form>
         );
