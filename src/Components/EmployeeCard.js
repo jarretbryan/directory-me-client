@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 
 const Article = styled.article.attrs({
-    className: "center mw5 mw6-ns hidden ba mv4"
+    className: "center mw5 mw6-ns hidden mv4"
 })``
 
 const Title = styled.h1.attrs({
