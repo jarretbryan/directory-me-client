@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import employeeAdapter from '../api/EmployeeAdapter'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 
 //styling
@@ -23,8 +23,16 @@ const Input = styled.input.attrs({
 })``
 
 const Button = styled.p.attrs({
-    className: "f6 link dim br-pill ph3 pv2 mb2 dib white bg-gold"
-})``
+    className: "f6 link dim br-pill ph3 pv2 mb2 dib white"
+})`
+    background: blue
+    margin: 1em;
+
+    ${props => props.primary && css`
+    background: red;
+    color: white;
+  `}
+`
 
 
 
@@ -68,6 +76,8 @@ class EmployeeForm extends Component {
                     <Input id="office" name="office" type="text" aria-describedby="office-desc" />
 
                     <Button onClick={this.handleSubmit}>Add</Button>
+
+                    <Button primary onClick={this.props.formFn}>Close</Button>
 
                     
 

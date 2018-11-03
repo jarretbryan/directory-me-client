@@ -18,11 +18,13 @@ const Button = styled.p.attrs({
     className: "f6 link dim br-pill ph3 pv2 mb2 dib white bg-gold"
 })``
 
-const PageHeader = () => (
+const PageHeader = (props) => (
+    
+
     <Header>
         <TextBox>
             <HeaderText>DirectorMe</HeaderText>
-            <Button onClick={e => {console.log(e)}}>Add Employee</Button>
+            <Button onClick={props.formFn}>Add Employee</Button>
         </TextBox> 
     </Header>
 )

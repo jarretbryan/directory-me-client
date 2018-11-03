@@ -13,11 +13,47 @@ class App extends Component {
     addingDept: false
   }
 
+  // these next four methods could be consolidated into 2
+  showEmployeeForm = () => {
+    console.log(this)
+    this.setState({
+      addingEmployee:true
+    })
+  }
+
+  hideEmployeeForm = () => {
+    this.setState({
+      addingEmployee: false
+    })
+  }
+
+  showDeptForm = () => {
+    this.setState({
+      addingDept: true
+    })
+  }
+
+  hideDeptForm = () => {
+    this.setState({
+      addingDept: false
+    })
+  }
+
+  renderEmpForm = () =>{
+    if (this.state.addingEmployee === true){
+      return (<EmployeeForm formFn={this.hideEmployeeForm} />) 
+    } else {
+      return null
+    }
+  }
+
+
+
   render() {
     return (
       <div className="App">
-        <Header />
-        <EmployeeForm />
+        <Header formFn={this.showEmployeeForm} />
+        {this.renderEmpForm()}
         <EmployeeContainer />
       </div>
     );
