@@ -53,9 +53,8 @@ class EmployeeForm extends Component {
         })
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault()
-        employeeAdapter.create(this.state)
+    handleSubmit = () => {
+        employeeAdapter.create(this.state).then(() => this.props.formFn)
     }
 
 
@@ -75,7 +74,7 @@ class EmployeeForm extends Component {
                     <Label htmlFor="office">Office</Label>
                     <Input id="office" name="office" type="text" aria-describedby="office-desc" />
 
-                    <Button onClick={this.handleSubmit}>Add</Button>
+                    <Button onClick={this.handleSubmit}> Add</Button>
 
                     <Button primary onClick={this.props.formFn}>Close</Button>
 
