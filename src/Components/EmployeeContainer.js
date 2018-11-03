@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import employeeAdapter from '../api/EmployeeAdapter'
 import EmployeeCard from './EmployeeCard'
+import styled from 'styled-components'
+
+
+const Container = styled.section.attrs({
+    className: "cf"
+})``
+
+const Card = styled.div.attrs({
+    className: "fl w-100 w-50-m w-25-l tc pv4"
+})``
 
 class EmployeeContainer extends Component {
 
@@ -18,17 +28,16 @@ class EmployeeContainer extends Component {
     }
 
     mapEmployees = () => {
-        return this.state.filteredEmp.map(employee => <EmployeeCard info={employee} key={employee.id} />)
+        return this.state.filteredEmp.map(employee => <Card key={employee.id}><EmployeeCard info={employee}/></Card>)
     }
 
     
 
     render() {
         return (
-            <div>
-                <h1>Employees will go here!</h1>
+            <Container>
                 {this.mapEmployees()}
-            </div>
+            </Container>
         );
     }
 }

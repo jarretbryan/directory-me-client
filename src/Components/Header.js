@@ -10,15 +10,19 @@ const TextBox = styled.div.attrs({
     className: "flex-grow pa3 flex items-center"
 })``
 
-const HeaderText = styled.p.attrs({
+const HeaderText = styled.h1.attrs({
     className: "f6 link dib white dim mr3 mr4-ns"
+})``
+
+const Button = styled.p.attrs({
+    className: "f6 link dim br-pill ph3 pv2 mb2 dib white bg-gold"
 })``
 
 const PageHeader = () => (
     <Header>
         <TextBox>
             <HeaderText>DirectorMe</HeaderText>
-            <HeaderText>Text</HeaderText>
+            <Button onClick={e => {console.log(e)}}>Add Employee</Button>
         </TextBox> 
     </Header>
 )
