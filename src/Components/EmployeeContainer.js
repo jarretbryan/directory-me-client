@@ -26,14 +26,6 @@ class EmployeeContainer extends Component {
             filteredEmp: res
         }))
 
-        // employeeAdapter.create({
-        //     name: "Peter Parker",
-        //     title: "Vice President",
-        //     location: "New York",
-        //     office: "4547",
-        //     direct: "(212) 555-8022",
-        //     department_id: 2
-        // })
     }
 
     mapEmployees = () => {
