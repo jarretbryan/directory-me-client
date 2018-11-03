@@ -54,9 +54,11 @@ class EmployeeForm extends Component {
     }
 
     handleSubmit = () => {
-        employeeAdapter.create(this.state).then(() => this.props.formFn)
+        employeeAdapter.create(this.state).then(res => {
+            console.log(res)
+            this.props.formFn()
+        })
     }
-
 
 
     render() {

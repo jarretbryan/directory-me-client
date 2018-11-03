@@ -25,7 +25,17 @@ class EmployeeContainer extends Component {
             fullEmp: res,
             filteredEmp: res
         }))
+    }
 
+    componentDidUpdate(){
+        if (this.props.updateStatus===true){
+            console.log('this updated!')
+            this.props.resolveUpdate()
+            employeeAdapter.index().then(res => this.setState({
+                fullEmp: res,
+                filteredEmp: res
+            }))
+        }
     }
 
     mapEmployees = () => {

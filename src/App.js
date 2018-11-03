@@ -10,7 +10,8 @@ class App extends Component {
 
   state = {
     addingEmployee: false,
-    addingDept: false
+    addingDept: false,
+    justUpdated: false
   }
 
   // these next four methods could be consolidated into 2
@@ -23,7 +24,8 @@ class App extends Component {
 
   hideEmployeeForm = () => {
     this.setState({
-      addingEmployee: false
+      addingEmployee: false,
+      justUpdated: true
     })
   }
 
@@ -47,6 +49,12 @@ class App extends Component {
     }
   }
 
+  resolveUpdate = () => {
+    this.setState({
+      justUpdated: false
+    })
+  }
+
 
 
   render() {
@@ -54,7 +62,7 @@ class App extends Component {
       <div className="App">
         <Header formFn={this.showEmployeeForm} />
         {this.renderEmpForm()}
-        <EmployeeContainer />
+        <EmployeeContainer updateStatus={this.state.justUpdated} resolveUpdate={this.resolveUpdate} />
       </div>
     );
   }
