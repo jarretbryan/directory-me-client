@@ -13,12 +13,14 @@ class DeptDropdown extends Component {
         list: []
     }
 
+    // fetch list of departments
     componentDidMount(){
         DeptAdapter.index().then(res => this.setState({
             list: res
         }))
     }
 
+    // update list of departments after adding
     componentDidUpdate(){
         if (this.props.updateStatus===true && !!this.props.updateStatus){
             console.log('dept updated!')
