@@ -19,6 +19,16 @@ class DeptDropdown extends Component {
         }))
     }
 
+    componentDidUpdate(){
+        if (this.props.updateStatus===true && !!this.props.updateStatus){
+            console.log('dept updated!')
+            this.props.resolveUpdate()
+            DeptAdapter.index().then(res => this.setState({
+                list: res
+            }))
+        }
+    }
+
     mapOptions = () => {
         return this.state.list.map(obj => <option key={obj.id} value={obj.id}>{obj.name}</option>)
     }

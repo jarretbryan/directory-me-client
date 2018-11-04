@@ -35,7 +35,7 @@ class EmployeeContainer extends Component {
 
     componentDidUpdate(){
         if (this.props.updateStatus===true){
-            console.log('this updated!')
+            console.log('emp updated!')
             this.props.resolveUpdate()
             employeeAdapter.index().then(res => this.setState({
                 filteredEmp: res
@@ -74,7 +74,7 @@ class EmployeeContainer extends Component {
             <Fragment>
                 <SearchContainer>
                     <SearchForm handleChange={this.searchFilter} />
-                    <DeptDropdown isRequired={false} handleDrop={(e) => this.deptFilter(e)}/>
+                    <DeptDropdown isRequired={false} updateStatus={this.props.updateStatus} resolveUpdate={this.props.resolveUpdate} handleDrop={(e) => this.deptFilter(e)}/>
                 </SearchContainer>
                 <Container>
                     {this.mapEmployees(bios)}

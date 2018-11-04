@@ -48,7 +48,11 @@ class EmployeeForm extends Component {
     }
 
     handleSubmit = () => {
-
+        DeptAdapter.create(this.state.name)
+        .then(res => {
+            console.log(res)
+            this.props.formFn()
+        } )
     }
     
     render() {
