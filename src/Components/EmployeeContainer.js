@@ -74,7 +74,7 @@ class EmployeeContainer extends Component {
             <Fragment>
                 <SearchContainer>
                     <SearchForm handleChange={this.searchFilter} />
-                    <DeptDropdown handleDrop={(e) => this.deptFilter(e)}/>
+                    <DeptDropdown isRequired={false} handleDrop={(e) => this.deptFilter(e)}/>
                 </SearchContainer>
                 <Container>
                     {this.mapEmployees(bios)}

@@ -23,12 +23,18 @@ class DeptDropdown extends Component {
         return this.state.list.map(obj => <option key={obj.id} value={obj.id}>{obj.name}</option>)
     }
 
+    handleRequirement = () => {
+        if (this.props.isRequired === false){
+            return <option value="0">All Departments</option>
+        }
+    }
+
     render() {
         return (
             <Form>
-                <label htmlFor="dept-drop">Filter by Dept</label><br />
+                <label htmlFor="dept-drop">Choose a Dept</label><br />
                 <select id="dept-drop" onChange={this.props.handleDrop}>
-                    <option value="0">All Departments</option>
+                    {this.handleRequirement()}
                     {this.mapOptions()}
                 </select>
             </Form>

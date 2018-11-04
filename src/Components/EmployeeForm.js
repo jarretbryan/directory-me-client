@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import employeeAdapter from '../api/EmployeeAdapter'
+import DeptDropdown from './DeptDropdown'
 import styled, { css } from 'styled-components'
 
 
@@ -44,7 +45,7 @@ class EmployeeForm extends Component {
         location: '',
         direct: '',
         office: '',
-        department_id: 2
+        department_id: 1
     }
 
     handleChange = (event) => {
@@ -57,6 +58,12 @@ class EmployeeForm extends Component {
         employeeAdapter.create(this.state).then(res => {
             console.log(res)
             this.props.formFn()
+        })
+    }
+
+    deptFilter = (event) => {
+        this.setState({
+            department_id: parseInt(event.target.value)
         })
     }
 
@@ -75,6 +82,7 @@ class EmployeeForm extends Component {
                     <Input id="direct" name="direct" type="text" aria-describedby="direct-desc" />
                     <Label htmlFor="office">Office</Label>
                     <Input id="office" name="office" type="text" aria-describedby="office-desc" />
+                    <DeptDropdown isRequired={true} handleDrop={(e) => this.deptFilter(e)} />
 
                     <Button onClick={this.handleSubmit}> Add</Button>
 
