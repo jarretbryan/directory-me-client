@@ -1,3 +1,4 @@
+// API call for employees
 class EmployeeAdapter {
         
     static index(){

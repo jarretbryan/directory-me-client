@@ -1,7 +1,18 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
+const PageHeader = (props) => (
+    
+    <Header>
+        <TextBox>
+            <HeaderText>DirectorMe</HeaderText>
+            <Button onClick={props.addEmp}>Add Employee</Button> |
+            <Button onClick={props.addDept} dept>Add Department</Button>
+        </TextBox> 
+    </Header>
+)
 
+// styling
 const Header = styled.nav.attrs({
     className: "flex justify-between bb b--white-10 bg-black"
 })``
@@ -24,17 +35,5 @@ const Button = styled.p.attrs({
     background: blue;
     color: white;
   `}`
-
-const PageHeader = (props) => (
-    
-
-    <Header>
-        <TextBox>
-            <HeaderText>DirectorMe</HeaderText>
-            <Button onClick={props.addEmp}>Add Employee</Button> |
-            <Button onClick={props.addDept} dept>Add Department</Button>
-        </TextBox> 
-    </Header>
-)
 
 export default PageHeader
