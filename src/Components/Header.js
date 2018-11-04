@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 
 const Header = styled.nav.attrs({
@@ -15,8 +15,15 @@ const HeaderText = styled.h1.attrs({
 })``
 
 const Button = styled.p.attrs({
-    className: "f6 link dim br-pill ph3 pv2 mb2 dib white bg-gold"
-})``
+    className: "f6 link dim br-pill ph3 pv2 mb2 dib white"
+})`
+    background: orange
+    margin: 1em;
+
+    ${props => props.dept && css`
+    background: blue;
+    color: white;
+  `}`
 
 const PageHeader = (props) => (
     
@@ -24,7 +31,8 @@ const PageHeader = (props) => (
     <Header>
         <TextBox>
             <HeaderText>DirectorMe</HeaderText>
-            <Button onClick={props.formFn}>Add Employee</Button>
+            <Button onClick={props.formFn}>Add Employee</Button> |
+            <Button dept>Add Department</Button>
         </TextBox> 
     </Header>
 )
