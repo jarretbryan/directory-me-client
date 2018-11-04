@@ -23,14 +23,12 @@ class EmployeeContainer extends Component {
 
     state = {
         filteredEmp: [],
-        fullEmp: [],
         searchFilter:'',
         deptVal: "0"
     }
 
     componentDidMount(){
         employeeAdapter.index().then(res => this.setState({
-            fullEmp: res,
             filteredEmp: res
         }))
     }
@@ -40,7 +38,6 @@ class EmployeeContainer extends Component {
             console.log('this updated!')
             this.props.resolveUpdate()
             employeeAdapter.index().then(res => this.setState({
-                fullEmp: res,
                 filteredEmp: res
             }))
         }
