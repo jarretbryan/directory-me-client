@@ -31,8 +31,8 @@ const PageHeader = (props) => (
     <Header>
         <TextBox>
             <HeaderText>DirectorMe</HeaderText>
-            <Button onClick={props.formFn}>Add Employee</Button> |
-            <Button dept>Add Department</Button>
+            <Button onClick={props.addEmp}>Add Employee</Button> |
+            <Button onClick={props.addDept} dept>Add Department</Button>
         </TextBox> 
     </Header>
 )

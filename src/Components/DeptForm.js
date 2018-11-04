@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import employeeAdapter from '../api/EmployeeAdapter'
+import DeptAdapter from '../api/DeptAdapter'
 
 import styled, { css } from 'styled-components'
 
@@ -34,8 +34,6 @@ const Button = styled.p.attrs({
     color: white;
   `}
 `
-
-
 
 class EmployeeForm extends Component {
 

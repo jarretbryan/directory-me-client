@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import EmployeeContainer from './Components/EmployeeContainer'
 import Header from './Components/Header'
 import EmployeeForm from './Components/EmployeeForm'
+import DeptForm from './Components/DeptForm.js'
 
 // import './App.css';
 
@@ -37,7 +38,8 @@ class App extends Component {
 
   hideDeptForm = () => {
     this.setState({
-      addingDept: false
+      addingDept: false,
+      justUpdated: true
     })
   }
 
@@ -49,19 +51,26 @@ class App extends Component {
     }
   }
 
+  renderDeptForm = () => {
+    if (this.state.addingDept === true) {
+      return (<DeptForm formFn={this.hideDeptForm} />)
+    } else {
+      return null
+    }
+  }
+
   resolveUpdate = () => {
     this.setState({
       justUpdated: false
     })
   }
 
-
-
   render() {
     return (
       <div className="App">
-        <Header formFn={this.showEmployeeForm} />
+        <Header addEmp={this.showEmployeeForm} addDept={this.showDeptForm} />
         {this.renderEmpForm()}
+        {this.renderDeptForm()}
         <EmployeeContainer updateStatus={this.state.justUpdated} resolveUpdate={this.resolveUpdate} />
       </div>
     );
