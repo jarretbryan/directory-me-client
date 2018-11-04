@@ -28,7 +28,6 @@ class DeptDropdown extends Component {
             <Form>
                 <label htmlFor="dept-drop">Filter by Dept</label><br />
                 <select id="dept-drop" onChange={this.props.handleDrop}>
-                    <option value="" selected disabled hidden >Choose here</option>
                     <option value="0">All Departments</option>
                     {this.mapOptions()}
                 </select>

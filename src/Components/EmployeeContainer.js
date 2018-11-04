@@ -25,7 +25,7 @@ class EmployeeContainer extends Component {
         filteredEmp: [],
         fullEmp: [],
         searchFilter:'',
-        deptVal: null
+        deptVal: "0"
     }
 
     componentDidMount(){
@@ -67,6 +67,10 @@ class EmployeeContainer extends Component {
         let bios = this.state.filteredEmp
         if (this.state.searchFilter.length > 0){
             bios = bios.filter((person) => person.name.toLowerCase().match(this.state.searchFilter.toLocaleLowerCase().trim()))
+        }
+
+        if (this.state.deptVal !== "0"){
+            bios = bios.filter(person => person.department.id.toString().match(this.state.deptVal))
         }
 
         return (
