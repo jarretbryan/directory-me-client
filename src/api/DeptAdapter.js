@@ -1,3 +1,5 @@
+
+// API call for departments
 class DeptAdapter {
 
     static index() {

@@ -5,19 +5,6 @@ import SearchForm from './SearchForm'
 import DeptDropdown from './DeptDropdown'
 import styled from 'styled-components'
 
-
-const Container = styled.section.attrs({
-    className: "cf"
-})``
-
-const Card = styled.div.attrs({
-    className: "fl w-100 w-50-m w-25-l tc pv4"
-})``
-
-const SearchContainer = styled.div.attrs({
-    className: "flex justify-around"
-})``
-
 class EmployeeContainer extends Component {
 
 
@@ -27,12 +14,22 @@ class EmployeeContainer extends Component {
         deptVal: "0"
     }
 
+    // sort employees alphabetically
     componentDidMount(){
         employeeAdapter.index().then(res => this.setState({
-            filteredEmp: res
+            filteredEmp: res.sort(
+                (el1, el2) => {
+                    if (el1.name > el2.name)
+                        return 1;
+                    if (el1.name < el2.name)
+                        return -1;
+                    return 0 
+                }
+            )
         }))
     }
 
+    // keep employees up to date after adding new
     componentDidUpdate(){
         if (this.props.updateStatus===true){
             console.log('emp updated!')
@@ -83,5 +80,18 @@ class EmployeeContainer extends Component {
         );
     }
 }
+
+// styling
+const Container = styled.section.attrs({
+    className: "cf"
+})``
+
+const Card = styled.div.attrs({
+    className: "fl w-100 w-50-m w-25-l tc pv4"
+})``
+
+const SearchContainer = styled.div.attrs({
+    className: "flex justify-around"
+})``
 
 export default EmployeeContainer;
