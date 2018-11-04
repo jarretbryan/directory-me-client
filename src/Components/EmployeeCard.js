@@ -5,6 +5,7 @@ const EmployeeCard = (props) => (
     <Article>
         <Title>{props.info.name}</Title>
         <Box>
+            <Text>{props.info.location}</Text>
             <Text><strong>Department: </strong>{props.info.department.name} </Text>
             <Text><strong>Title: </strong>{props.info.title}</Text>
             <Text><strong>Office: </strong>{props.info.office}</Text>
