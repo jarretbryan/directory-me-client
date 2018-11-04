@@ -44,8 +44,8 @@ class EmployeeContainer extends Component {
         }
     }
 
-    mapEmployees = () => {
-        return this.state.filteredEmp.map(employee => <Card key={employee.id}><EmployeeCard info={employee}/></Card>)
+    mapEmployees = (array) => {
+        return array.map(employee => <Card key={employee.id}><EmployeeCard info={employee}/></Card>)
     }
 
     searchFilter = (event) => {
@@ -58,9 +58,13 @@ class EmployeeContainer extends Component {
 
     }
 
-    
-
     render() {
+
+        let bios = this.state.filteredEmp
+        if (this.state.searchFilter.length > 0){
+            bios = bios.filter((person) => person.name.toLowerCase().match(this.state.searchFilter.toLocaleLowerCase().trim()))
+        }
+
         return (
             <Fragment>
                 <SearchContainer>
@@ -68,7 +72,7 @@ class EmployeeContainer extends Component {
                     <p>test</p>
                 </SearchContainer>
                 <Container>
-                    {this.mapEmployees()}
+                    {this.mapEmployees(bios)}
                 </Container>
             </Fragment>
         );
