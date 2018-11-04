@@ -7,7 +7,6 @@ import styled from 'styled-components'
 
 class EmployeeContainer extends Component {
 
-
     state = {
         filteredEmp: [],
         searchFilter:'',
@@ -35,7 +34,15 @@ class EmployeeContainer extends Component {
             console.log('emp updated!')
             this.props.resolveUpdate()
             employeeAdapter.index().then(res => this.setState({
-                filteredEmp: res
+                filteredEmp: res.sort(
+                    (el1, el2) => {
+                        if (el1.name > el2.name)
+                            return 1;
+                        if (el1.name < el2.name)
+                            return -1;
+                        return 0
+                    }
+                )
             }))
         }
     }
@@ -83,11 +90,11 @@ class EmployeeContainer extends Component {
 
 // styling
 const Container = styled.section.attrs({
-    className: "cf"
+    className: "flex flex-wrap"
 })``
 
 const Card = styled.div.attrs({
-    className: "fl w-100 w-50-m w-25-l tc pv4"
+    className: "fl w-100 w-50-m w-25-l pv4"
 })``
 
 const SearchContainer = styled.div.attrs({
