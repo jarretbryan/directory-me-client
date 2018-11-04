@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import employeeAdapter from '../api/EmployeeAdapter'
 import EmployeeCard from './EmployeeCard'
+import SearchForm from './SearchForm'
 import styled from 'styled-components'
 
 
@@ -12,12 +13,17 @@ const Card = styled.div.attrs({
     className: "fl w-100 w-50-m w-25-l tc pv4"
 })``
 
+const SearchContainer = styled.div.attrs({
+    className: "flex justify-around"
+})``
+
 class EmployeeContainer extends Component {
 
 
     state = {
         filteredEmp: [],
-        fullEmp: []
+        fullEmp: [],
+        searchFilter:''
     }
 
     componentDidMount(){
@@ -42,13 +48,29 @@ class EmployeeContainer extends Component {
         return this.state.filteredEmp.map(employee => <Card key={employee.id}><EmployeeCard info={employee}/></Card>)
     }
 
+    searchFilter = (event) => {
+        this.setState({
+            searchFilter: event.target.value
+        })
+    }
+
+    deptFilter = () => {
+
+    }
+
     
 
     render() {
         return (
-            <Container>
-                {this.mapEmployees()}
-            </Container>
+            <Fragment>
+                <SearchContainer>
+                    <SearchForm handleChange={this.searchFilter} />
+                    <p>test</p>
+                </SearchContainer>
+                <Container>
+                    {this.mapEmployees()}
+                </Container>
+            </Fragment>
         );
     }
 }
