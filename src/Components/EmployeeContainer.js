@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import employeeAdapter from '../api/EmployeeAdapter'
 import EmployeeCard from './EmployeeCard'
 import SearchForm from './SearchForm'
+import DeptDropdown from './DeptDropdown'
 import styled from 'styled-components'
 
 
@@ -23,7 +24,8 @@ class EmployeeContainer extends Component {
     state = {
         filteredEmp: [],
         fullEmp: [],
-        searchFilter:''
+        searchFilter:'',
+        deptVal: null
     }
 
     componentDidMount(){
@@ -54,8 +56,10 @@ class EmployeeContainer extends Component {
         })
     }
 
-    deptFilter = () => {
-
+    deptFilter = (event) => {
+        this.setState({
+            deptVal: event.target.value
+        })
     }
 
     render() {
@@ -69,7 +73,7 @@ class EmployeeContainer extends Component {
             <Fragment>
                 <SearchContainer>
                     <SearchForm handleChange={this.searchFilter} />
-                    <p>test</p>
+                    <DeptDropdown handleDrop={(e) => this.deptFilter(e)}/>
                 </SearchContainer>
                 <Container>
                     {this.mapEmployees(bios)}
