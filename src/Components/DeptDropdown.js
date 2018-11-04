@@ -20,7 +20,7 @@ class DeptDropdown extends Component {
     }
 
     mapOptions = () => {
-        return this.state.list.map(obj => <option value={obj.id}>{obj.name}</option>)
+        return this.state.list.map(obj => <option key={obj.id} value={obj.id}>{obj.name}</option>)
     }
 
     render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import employeeAdapter from '../api/EmployeeAdapter'
+// import employeeAdapter from '../api/EmployeeAdapter'
 import styled from 'styled-components'
 
 
