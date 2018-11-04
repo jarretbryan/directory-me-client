@@ -24,9 +24,9 @@ const EmployeeCard = (props) => (
         <Title>{props.info.name}</Title>
         <Box>
             <Text><strong>Department: </strong>{props.info.department.name} </Text>
-            <Text><strong>Title:</strong>{props.info.title}</Text>
-            <Text><strong>Office:</strong>{props.info.office}</Text>
-            <Text><strong>Direct Line:</strong>{props.info.direct}</Text>
+            <Text><strong>Title: </strong>{props.info.title}</Text>
+            <Text><strong>Office: </strong>{props.info.office}</Text>
+            <Text><strong>Direct Line: </strong>{props.info.direct}</Text>
         </Box>
     </Article>
 )

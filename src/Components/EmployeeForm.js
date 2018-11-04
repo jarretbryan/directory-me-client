@@ -88,8 +88,6 @@ class EmployeeForm extends Component {
 
                     <Button primary onClick={this.props.formFn}>Close</Button>
 
-                    
-
                 </Measure>
             </Form>
         );
